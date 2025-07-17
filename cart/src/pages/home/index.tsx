@@ -1,12 +1,13 @@
 // importing useEffect and useState from react
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 // importing the cart icon from react-icons
 import { BsCartPlus } from "react-icons/bs";
 // importing the api service
 import { api } from "../../services/api";
+import { CartContext } from "../../contexts/CartContext";
 
 // Defining the structure of a product:
-interface ProductProps {
+export interface ProductProps {
     // Defining the properties of a product:
     id: string;
     title: string;
@@ -16,6 +17,7 @@ interface ProductProps {
 }
 
 export function Home() { // exporting the Home component
+    const { addItemCart } = useContext(CartContext);
 
     // Using useState to manage the products state:
     const [products, setProducts] = useState<ProductProps[]>([]); // initializing products as an empty array of ProductProps
@@ -27,6 +29,10 @@ export function Home() { // exporting the Home component
         }
         getProducts(); // calling the getProducts function to fetch the products
     }, []); // the empty dependency array means this effect runs only once when the component mounts
+
+    function handleAddCartItem(product: ProductProps) {
+        addItemCart(product);
+    }
 
     return (
         <div>
@@ -52,9 +58,9 @@ export function Home() { // exporting the Home component
                                         currency: "BRL"
                                     })} 
                                 </strong>
-                                <button className="bg-zinc-700 p-1 rounded">
+                                <button className="bg-zinc-700 p-1 rounded" onClick={() => handleAddCartItem(product)}>
                                     <BsCartPlus size={20} color="fff" />
-                                    Adicionar ao carrinho
+                                    
                                 </button>
                             </div>
                         </section>
