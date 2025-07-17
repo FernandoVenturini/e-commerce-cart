@@ -41,6 +41,34 @@
       "description": "O smartwatch que oferece o mais completo conjunto de funções de monitoramento para o acompanhamento da Saúde e do Bem-Estar de uma maneira precisa e confiável. Possui os recursos essenciais e mais avançados para medir e acompanhar o estado da sua Saúde, funções como monitor de Batimento Cardíaco, Pressão Arterial, Eletrocardiograma, Oxímetro, Detecção de Queda e Chamada de Emergência, programa de Coaching do Sono para monitorar e melhorar a qualidade do seu Sono , além da Bioimpedância para avaliar a composição corporal de maneira rápida e interativa, e verificar a evolução os resultados dos exercícios refletidos no seu corpo. Possui uma série de funções avançadas de treinos com mais de 95 modalidades. ",
       "price": 1139.00,
       "cover": "https://i.imgur.com/Ua4bURp.jpg"
+    },
+    { 
+      "id": 7, 
+      "title": "Google Fitbit Charge 6 Activity Tracker ", 
+      "description": "7 days of battery and Water-resistant up to 50m, Compatible with iOS 15 or higher & Android OS 9.0 or higher\nMove more: Heart Rate on Equipment via Bluetooth, Built-in GPS, 40+ Exercise Modes, Daily Readiness Score, Active Zone Minutes, 24/7 Heart Rate, All-day Activity Tracking, Cardio Fitness Level, Automatic Exercise Tracking, Workout Intensity Map and Reminders to Move\nComfortably Connected Day and Night: Google Maps, Google Wallet, Youtube Music Controls, Call, Text and Smartphone App Notifications, Vibrant Colour Touchscreen with Customizable Clock Faces, Timer and Stopwatch\nSleep better: Automatic Sleep Tracking, Personalized Sleep Profile, Daily Detailed Sleep Score (with Premium), Smart Wake Vibrating Alarm, Sleep Mode. ",
+      "price": 798.00,
+      "cover": "https://m.media-amazon.com/images/I/61ta54V6ecL._AC_SL1500_.jpg"
+    },
+    {
+      "id": 8, 
+      "title": "Garmin Forerunner 255 GPS 46mm", 
+      "description": "Garmin Forerunner 255 GPS Running Smartwatch with Music, Body Battery, Training Status, and More, Black/Slate\n\n- GPS running smartwatch with advanced training features\n- Built-in sports apps for running, cycling, swimming, and more\n- Music storage for up to 500 songs\n- Body Battery energy monitoring\n- Training status and load tracking",
+      "price": 299.99,
+      "cover": "https://m.media-amazon.com/images/I/51oM3U58x2L._AC_SL1000_.jpg"
+    },
+    {
+      "id": 9, 
+      "title": "Apple 2025 MacBook Air 13-inch", 
+      "description": "Apple 2025 MacBook Air 13-inch with M3 Chip, 8GB RAM, 256GB SSD, Midnight\n\n- Apple M3 chip with 8-core CPU and 10-core GPU\n- 13.6-inch Liquid Retina display with True Tone\n- Up to 18 hours of battery life\n- Fanless design for silent operation\n- Lightweight and portable",
+      "price": 1299.00,
+      "cover": "https://m.media-amazon.com/images/I/71sQdN4lfYL._AC_SL1500_.jpg"
+    }, 
+    {
+      "id": 10, 
+      "title": "Apple 2024 MacBook Pro Laptop", 
+      "description": "Apple 2024 MacBook Pro Laptop with M3 Pro Chip, 16GB RAM, 512GB SSD, Space Gray\n\n- Apple M3 Pro chip with 12-core CPU and 18-core GPU\n- 14.2-inch Liquid Retina XDR display\n- Up to 22 hours of battery life\n- Advanced thermal architecture for sustained performance\n- Ideal for professional video editing and graphic design",
+      "price": 1449.99,
+      "cover": "https://m.media-amazon.com/images/I/618r76w5dGL._AC_SL1500_.jpg"
     }
   ]
 }
