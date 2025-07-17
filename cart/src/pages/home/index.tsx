@@ -1,7 +1,33 @@
+// importing useEffect and useState from react
+import { useEffect, useState } from "react";
 // importing the cart icon from react-icons
 import { BsCartPlus } from "react-icons/bs";
+// importing the api service
+import { api } from "../../services/api";
 
-export function Home() {
+// Defining the structure of a product:
+interface ProductProps {
+    // Defining the properties of a product:
+    id: string;
+    title: string;
+    description: string;
+    price: number;
+    cover: string;
+}
+
+export function Home() { // exporting the Home component
+
+    // Using useState to manage the products state:
+    const [products, setProducts] = useState<ProductProps[]>([]); // initializing products as an empty array of ProductProps
+
+    useEffect(() => { // using useEffect to fetch products when the component mounts
+        async function getProducts() {// Defining an asynchronous function to fetch products from the API
+            const response = await api.get('/products'); // making a GET request to the /products endpoint
+            setProducts(response.data); // updating the products state with the fetched data
+        }
+        getProducts(); // calling the getProducts function to fetch the products
+    }, []); // the empty dependency array means this effect runs only once when the component mounts
+
     return (
         <div>
             <main className="w-full max-w-7x1 px-4 mx-auto">
@@ -9,60 +35,31 @@ export function Home() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
 
-                    <section className="w-full">
-                        <img
-                            className="w-full rounded-lg max-h-70 mb-2"
-                            src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-4-select-202409_FV1?wid=976&hei=916&fmt=jpeg&qlt=90&.v=WnVKRVRUTFVsYThXaWkydWViL1Q3ZDZGTE9TV3RDcGJJclBqdUtzdTJYYjNHc3NlSmU2dzJyR1kxZEwyTE1neUJkRlpCNVhYU3AwTldRQldlSnpRa0NZZXAxWFNjRXhITDI1RVE5YVpyU0E" 
-                            alt="fone" 
-                        />
+                    {products.map((product) => (
+                        <section key={product.id} className="w-full">
+                            <img
+                                className="w-full rounded-lg max-h-70 mb-2"
+                                src={product.cover} // using product cover for image source
+                                alt={product.title} // using product title for alt text
+                            />
 
-                        <p className="font-medium mt-1 mb-2">Airpods Apple</p>
+                            <p className="font-medium mt-1 mb-2">{product.title}</p>
 
-                        <div className="flex gap-3 items-center">
-                            <strong className="text-zinc-700/90">1000</strong>
-                            <button className="bg-zinc-700 p-1 rounded">
-                                <BsCartPlus size={20} color="fff"/>
-                                Adicionar ao carrinho
-                            </button>
-                        </div>
-                    </section>
+                            <div className="flex gap-3 items-center">
+                                <strong className="text-zinc-700/90">
+                                    {product.price.toLocaleString("pt-BR", {
+                                        style: "currency", 
+                                        currency: "BRL"
+                                    })} 
+                                </strong>
+                                <button className="bg-zinc-700 p-1 rounded">
+                                    <BsCartPlus size={20} color="fff" />
+                                    Adicionar ao carrinho
+                                </button>
+                            </div>
+                        </section>
+                    ))};
 
-                    <section className="w-full">
-                        <img
-                            className="w-full rounded-lg max-h-70 mb-2"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeKRDm0Js78UrlZzPKAj6Wb7XUJZrD5_ONPA&s" 
-                            alt="fone" 
-                        />
-
-                        <p className="font-medium mt-1 mb-2">JBL</p>
-
-                        <div className="flex gap-3 items-center">
-                            <strong className="text-zinc-700/90">1000</strong>
-                            <button className="bg-zinc-700 p-1 rounded">
-                                <BsCartPlus size={20} color="fff"/>
-                                Adicionar ao carrinho
-                            </button>
-                        </div>
-                    </section>
-
-                    <section className="w-full">
-                        <img
-                            className="w-full rounded-lg max-h-70 mb-2"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzOlW7j3MBOtaXCF1vaOzKMmeRKFNMHlnxpA&s" 
-                            alt="fone" 
-                        />
-
-                        <p className="font-medium mt-1 mb-2">Keyboard mechanical</p>
-
-                        <div className="flex gap-3 items-center">
-                            <strong className="text-zinc-700/90">1000</strong>
-                            <button className="bg-zinc-700 p-1 rounded">
-                                <BsCartPlus size={20} color="fff"/>
-                                Adicionar ao carrinho
-                            </button>
-                        </div>
-                    </section>
-                    
 
                 </div>
             </main>
