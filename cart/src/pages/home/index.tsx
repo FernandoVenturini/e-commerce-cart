@@ -5,6 +5,7 @@ import { BsCartPlus } from "react-icons/bs";
 // importing the api service
 import { api } from "../../services/api";
 import { CartContext } from "../../contexts/CartContext";
+import toast from "react-hot-toast";
 
 // Defining the structure of a product:
 export interface ProductProps {
@@ -30,9 +31,22 @@ export function Home() { // exporting the Home component
         getProducts(); // calling the getProducts function to fetch the products
     }, []); // the empty dependency array means this effect runs only once when the component mounts
 
-    function handleAddCartItem(product: ProductProps) {
-        addItemCart(product);
-    }
+    function handleAddCartItem(product: ProductProps) { // function to handle adding an item to the cart
+        toast.success("Produto adicionado ao carrinho!", {
+            duration: 3000, // setting the duration of the toast message to 3 seconds
+            position: "top-center", // setting the position of the toast message to top center
+            style: {
+                backgroundColor: "#4ade80", // setting the background color of the toast message to a green shade
+                color: "#fff", // setting the text color of the toast message to white
+                fontWeight: "bold", // setting the font weight of the toast message to bold
+                fontSize: "16px", // setting the font size of the toast message to 16px
+                borderRadius: "8px", // setting the border radius of the toast message to 8px
+                padding: "16px", // setting the padding of the toast message to 16px
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // adding a subtle shadow to the toast message
+            },
+        }); // showing a success toast message
+        addItemCart(product); // calling the addItemCart function from CartContext to add the product to the cart
+    };
 
     return (
         <div>
@@ -42,9 +56,9 @@ export function Home() { // exporting the Home component
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
 
                     {products.map((product) => (
-                        <section key={product.id} className="w-full">
+                        <section key={product.id} className="w-full border-separate border border-zinc-200 rounded-lg p-4 flex flex-col items-center">
                             <img
-                                className="w-full rounded-lg max-h-70 mb-2"
+                                className="w-full rounded-lg max-h-70 mb-2 "
                                 src={product.cover} // using product cover for image source
                                 alt={product.title} // using product title for alt text
                             />
